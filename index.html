@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Designer 이름 Portfolio</title>
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- 폰트어썸 아이콘 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="index.html"><img src="img/logo.svg" alt="logo" /></a>
+      </h1>
+      <nav class="gnb">
+        <ul>
+          <li><a href="#work">WORK</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="gnb-mo">
+        <div class="contact-btn">
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+
+        <div class="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- contact 버튼 클릭하면 나타나는 글자 -->
+      <div class="contact-box">
+        <p class="open-contact">CONTACT</p>
+        <p>email@email.com</p>
+        <p>010-1234-5678</p>
+      </div>
+    </header>
+
+    <!-- 모바일 버전 gnb 메뉴 -->
+    <nav class="mobile-nav">
+      <ul>
+        <li>
+          <a href="#work">WORK</a>
+        </li>
+        <li>
+          <a href="#about">ABOUT</a>
+        </li>
+        <li>
+          <a href="#contact">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 모바일 버전 contact 모달 -->
+    <div class="contact-modal">
+      <div class="contact-inner">
+        <button class="contact-close">X</button>
+
+        <h2>CONTACT</h2>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <section id="visual">
+      <div class="video-container">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/images/main-visual-thumb.jpg"
+          class="main-video"
+        >
+          <!-- playsinline :: 아이폰 유저가 모바일에서 접속했을 때, 영상이 갑자기 전체화면으로 튀어나와서 웹사이트 흐름을 끊는 것을 막아줌 -->
+          <!-- poster :: 영상이 다운로드되는 동안 보여줄 대기 이미지 -->
+          <!-- preload="metadata" :: 영상 전체를 미리 받지 않고 길이, 해상도 정보만 먼저 받아 로딩 속도를 최적화함 -->
+
+          <source src="img/video.mp4" type="video/mp4" />
+
+          <!-- 영상 지원 안 할 시 대체 텍스트 -->
+          <p>
+            귀하의 브라우저는 비디오 재생을 지원하지 않습니다.
+            <a href="assets/video/main-visual.mp4">영상 다운로드</a>
+          </p>
+        </video>
+
+        <div class="video-dark"></div>
+
+        <!-- 영상 위에 얹어질 콘텐츠 (디자인 포인트) -->
+        <div class="video-overlay">
+          <span class="sub-title">UI DESIGNER</span>
+
+          <h2>
+            감각을 디테일하게 <br />
+            구현합니다
+          </h2>
+
+          <p>
+            사용자 경험과 화면의 흐름을 고민하며 더 나은 인터페이스를
+            만들어갑니다.
+          </p>
+
+          <a href="#work">작업물 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="work-inner">
+        <!-- 섹션 제목 -->
+        <div class="work-title">
+          <span>WORK</span>
+          <h2>Selected Works</h2>
+        </div>
+
+        <!-- 탭 버튼 -->
+        <div class="work-tabs">
+          <button class="work-tab active" data-tab="clone">
+            <span>01</span>
+            웹 디자인
+          </button>
+
+          <!-- data-tab :: 사용자 정의 데이터 저장 -->
+          <!-- 원래 html에는 href, src, alt 같은 기본 속성만 있는데 개발자가 직접 data-아무이름 형태로 데이터를 저장할 수 있음 -->
+          <!-- 이 버튼은 clone 탭과 연결된다는 뜻 -->
+
+          <!-- js가 버튼의 data-tab 값을 읽고 같은 id를 가진 preview를 보여줌 -->
+          <button class="work-tab" data-tab="illustration">
+            <span>02</span>
+            일러스트
+          </button>
+
+          <button class="work-tab" data-tab="mockup">
+            <span>03</span>
+            브랜드 디자인
+          </button>
+
+          <button class="work-tab" data-tab="app">
+            <span>04</span>
+            앱 디자인
+          </button>
+        </div>
+
+        <!-- 작업물 미리보기 -->
+        <div class="work-preview">
+          <!-- clone -->
+          <div class="preview-content active" id="clone">
+            <div class="preview-image">
+              <img src="" alt="" />
+            </div>
+
+            <div class="preview-info">
+              <span>Responsive Web Design</span>
+              <h3>반응형 웹 디자인</h3>
+
+              <p>
+                브랜드 무드와 사용자 흐름을 고려해 반응형으로 설계한 웹 디자인
+                프로젝트입니다.
+              </p>
+
+              <!-- project meta -->
+              <ul class="project-meta">
+                <li>2026</li>
+                <li>Responsive Web</li>
+                <li>HTML / CSS / JS</li>
+                <li>Personal Project</li>
+              </ul>
+
+              <a href="#">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- illustration -->
+          <div class="preview-content" id="illustration">
+            <div class="preview-image">
+              <img src="" alt="" />
+            </div>
+            <div class="preview-info">
+              <span>Digital Artwork</span>
+
+              <h3>일러스트 작업</h3>
+
+              <p>
+                다양한 무드와 감정을 시각적으로 표현한 디지털 드로잉 작업입니다.
+              </p>
+
+              <ul class="project-meta">
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+                <li>Artwork</li>
+                <li>Personal Work</li>
+              </ul>
+
+              <a href="#">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- mockup -->
+          <div class="preview-content" id="mockup">
+            <div class="preview-image">
+              <img src="" alt="" />
+            </div>
+
+            <div class="preview-info">
+              <span>MOCKUP DESIGN</span>
+
+              <h3>브랜드 디자인</h3>
+              <p>Branding and visual mockup.</p>
+              <p>
+                브랜드 아이덴티티와 무드를 시각적으로 전달하기 위한 목업 디자인
+                작업입니다.
+              </p>
+
+              <ul class="project-meta">
+                <li>Brand Design</li>
+                <li>Photoshop</li>
+                <li>Visual Design</li>
+                <li>Personal Work</li>
+              </ul>
+
+              <a href="#">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- app -->
+          <div class="preview-content" id="app">
+            <div class="preview-image">
+              <img src="" alt="" />
+            </div>
+
+            <div class="preview-info">
+              <span>Mobile App UI</span>
+
+              <h3>앱 디자인</h3>
+
+              <p>
+                사용자 경험과 사용성을 고려해 설계한 모바일 UI 디자인
+                프로젝트입니다.
+              </p>
+
+              <ul class="project-meta">
+                <li>UX/UI Design</li>
+                <li>Figma</li>
+                <li>Prototype</li>
+                <li>Personal Project</li>
+              </ul>
+
+              <a href="#">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-card">
+          <!-- 프로필 이미지 -->
+          <div class="about-image">
+            <img src="img/프로필-임시.jpg" alt="프로필 이미지" />
+          </div>
+
+          <!-- 소개글 -->
+          <div class="about-text">
+            <span class="mini-title">ABOUT</span>
+
+            <h2>
+              사용자 경험을 고민하는 <br />
+              UI디자이너 이름입니다.
+            </h2>
+
+            <p>
+              단순히 보기 좋은 화면보다 사용자의 흐름과 감정을 고려한
+              인터페이스를 만들고 있습니다.
+            </p>
+
+            <a href="#work"
+              >작업물 보기 <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="skills-track">
+        <ul class="skills-slide">
+          <li class="skill-item">
+            <img src="img/skills/photoshop-original.svg" alt="photoshop" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/illustrator-plain.svg" alt="illustrator" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/vscode-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/html5-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/css3-original.svg" alt="css" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/jquery-original.svg" alt="jquery" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/javascript-original.svg" alt="javascript" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/github-original.svg" alt="html" />
+          </li>
+        </ul>
+
+        <!-- 슬라이드 패턴 구분 -->
+        <div class="divider"></div>
+
+        <!-- 무한 슬라이드용 -->
+        <ul class="skills-slide">
+          <li class="skill-item">
+            <img src="img/skills/photoshop-original.svg" alt="photoshop" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/illustrator-plain.svg" alt="illustrator" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/vscode-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/html5-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/css3-original.svg" alt="css" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/jquery-original.svg" alt="jquery" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/javascript-original.svg" alt="javascript" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/github-original.svg" alt="html" />
+          </li>
+        </ul>
+
+        <!-- 슬라이드 패턴 구분 -->
+        <div class="divider"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-section-inner">
+        <!-- title -->
+        <div class="contact-title">
+          <span>CONTACT</span>
+
+          <h2>
+            더 나은 사용자 경험을 위해<br />
+            꾸준히 고민하고 있습니다.
+          </h2>
+        </div>
+
+        <!-- content -->
+        <div class="contact-wrap">
+          <!-- left -->
+          <div class="contact-left">
+            <p>
+              사용자 경험과 디테일을 고민하며<br />
+              감각적인 웹을 구현합니다.
+            </p>
+
+            <ul class="contact-info">
+              <li>
+                <span>EMAIL</span>
+                <a href="mailto:hello@email.com"> hello@email.com </a>
+              </li>
+
+              <li>
+                <span>GITHUB</span>
+                <a href="#"> github.com/yourname </a>
+              </li>
+
+              <li>
+                <span>NOTION</span>
+                <a href="#"> Portfolio Archive </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- right -->
+          <div class="contact-right">
+            <form class="contact-section-form">
+              <input type="text" placeholder="Your Name" />
+
+              <input type="email" placeholder="Your Email" />
+
+              <textarea placeholder="Message"></textarea>
+
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <p class="footer-label">PORTFOLIO</p>
+
+          <h2 class="footer-title">
+            <span>작은 디테일까지</span>
+            <span>의미 있게 담아내고 싶습니다.</span>
+          </h2>
+        </div>
+
+        <div class="footer-bottom">
+          <ul class="footer-links">
+            <li><a href="#">Email</a></li>
+            <li><a href="#">Github</a></li>
+            <li><a href="#">Notion</a></li>
+          </ul>
+
+          <p class="copyright">© 2026 UI Designer 이름</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 탑 버튼 -->
+    <button class="top-btn">TOP</button>
+
+    <!-- js 연결 -->
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
