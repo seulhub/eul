@@ -2215,13 +2215,20 @@ PC (Desktop)
     height: 30px;
   }
 
-  /* work */
+  /* 모바일 work */
   #work {
     padding: 80px 16px;
   }
   .work-title {
     margin-bottom: 30px;
   }
+
+  .work-title h2 {
+    font-size: 34px;
+    letter-spacing: 0.04em;
+    /* em: 글자 크기를 기준으로 함. 즉 4%만큼 글자 간격 줄임 */
+  }
+
   .work-tabs {
     justify-content: space-between;
     gap: 5px;
@@ -2236,13 +2243,17 @@ PC (Desktop)
     align-items: center;
     padding-bottom: 8px;
 
-    /* padding: 14px 10px 13px; */
+    /* padding: 14px 10px 8px; */
 
     border-radius: 16px 16px 0px 0px;
     font-size: 12px;
     text-align: center;
 
     margin-left: 0;
+  }
+
+  .work-tab:nth-child(2) {
+    word-break: keep-all;
   }
 
   .work-tab.active {
@@ -2328,6 +2339,11 @@ PC (Desktop)
     transform: translateY(0);
 
     pointer-events: auto;
+  }
+
+  .preview-image img {
+    margin-left: 17.5%;
+    top: 5%;
   }
 
   /* 프로젝트 메타 */
