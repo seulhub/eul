@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // 메뉴 버튼
   // menuBtn.addEventListener("click", () => {
   //   menuBtn.classList.toggle("active");
-const mobileNav = document.querySelector(".mobile-nav");
+  const mobileNav = document.querySelector(".mobile-nav");
 
-menuBtn.addEventListener("click", () => {
-  menuBtn.classList.toggle("active");
-  mobileNav.classList.toggle("active");
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("active");
+    mobileNav.classList.toggle("active");
 
     // contact 닫기
     contactBox.classList.remove("active");
@@ -51,12 +51,12 @@ menuBtn.addEventListener("click", () => {
   // 메뉴 클릭 시 자동 닫힘
   const mobileMenuLinks = document.querySelectorAll(".mobile-nav a");
 
-mobileMenuLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileNav.classList.remove("active");
-    menuBtn.classList.remove("active");
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("active");
+      menuBtn.classList.remove("active");
+    });
   });
-});
 
   // 모달 내용 양식
   const form = document.querySelector(".contact-form");
@@ -93,7 +93,7 @@ mobileMenuLinks.forEach((link) => {
     const visualContent = document.querySelector(".video-overlay");
     const video = document.querySelector(".main-video");
 
-    // 스크롤 될수록 비디오와 글자가 투명해지며 위로 살짝 이동
+    // 스크롤 될수록 비디오와 글자가 투명해지면서 위로 이동
     if (scrollY < window.innerHeight) {
       const opacity = 1 - scrollY / window.innerHeight;
       visualContent.style.opacity = opacity;
@@ -128,22 +128,118 @@ mobileMenuLinks.forEach((link) => {
     });
   });
 
+  // footer
+  const footerTitle = document.querySelector(".footer-title");
+
+  window.addEventListener("scroll", () => {
+    const footerTop = footerTitle.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+
+    if (footerTop < trigger) {
+      footerTitle.classList.add("show");
+    }
+  });
+
+  // footer gsap
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* footer 전체 타임라인 */
+  const footerTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#footer",
+      start: "top 80%",
+      end: "bottom bottom",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // 메인 타이틀
+  footerTl.to(".footer-title", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+  });
+
+  //  서브 텍스트
+  footerTl.to(
+    ".footer-subtitle",
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    },
+    "-=0.6",
+  );
+
+  // 키워드 stagger
+  footerTl.to(
+    ".keyword",
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power3.out",
+    },
+    "-=0.4",
+  );
+
+  // 마지막 서명
+  footerTl.to(
+    ".footer-sign",
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    },
+    "-=0.2",
+  );
+
   // 탑 버튼
-  const topBtn = document.querySelector(".top-btn")
-;
-window.addEventListener("scroll", ()=>{
-if (window.scrollY > 600) {
-  topBtn.classList.add("active");
-}  else{
-  topBtn.classList.remove("active")
-}
-}) 
-topBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+  const topBtn = document.querySelector(".top-btn");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 600) {
+      topBtn.classList.add("active");
+    } else {
+      topBtn.classList.remove("active");
+    }
+  });
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   });
 });
 
+// contact 메일 전송
+// EmailJS 초기화
+emailjs.init({
+  publicKey: "ikrZKyRCEMirHsMkm",
+});
 
+const contactSectionForm = document.getElementById("contact-section-form");
+const statusText = document.getElementById("form-status");
+
+contactSectionForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  statusText.innerText = "메일 전송 중...";
+
+  emailjs
+    .sendForm("service_d4934ig", "template_t04jxgu", contactSectionForm)
+    .then(() => {
+      statusText.innerText = "메일이 전송되었습니다 :)";
+
+      contactSectionForm.reset();
+    })
+    .catch((error) => {
+      console.error(error);
+
+      statusText.innerText =
+        "메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요.";
+    });
 });
