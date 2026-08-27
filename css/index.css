@@ -1049,6 +1049,10 @@ section {
   margin: 0 auto;
 }
 
+.mobile-br {
+  display: none;
+}
+
 /* title */
 
 .app-title {
@@ -2441,9 +2445,13 @@ PC (Desktop)
   }
 
   .app-title h2 {
-    font-size: 32px;
+    font-size: 35px;
 
     line-height: 1.2;
+  }
+
+  .mobile-br {
+    display: block;
   }
 
   /* 모바일 grid */
