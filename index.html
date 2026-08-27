@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Designer 김슬기 Portfolio</title>
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- 폰트어썸 아이콘 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
+      </h1>
+      <nav class="gnb">
+        <ul>
+          <li><a href="#work">WORK</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="gnb-mo">
+        <div class="contact-btn">
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+
+        <div class="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- contact 버튼 클릭하면 나타나는 글자 -->
+      <div class="contact-box">
+        <p class="open-contact">CONTACT</p>
+        <p>email@email.com</p>
+        <p>010-1234-5678</p>
+      </div>
+    </header>
+
+    <!-- 모바일 버전 gnb 메뉴 -->
+    <nav class="mobile-nav">
+      <ul>
+        <li>
+          <a href="#work">WORK</a>
+        </li>
+        <li>
+          <a href="#about">ABOUT</a>
+        </li>
+        <li>
+          <a href="#contact">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 모바일 버전 contact 모달 -->
+    <div class="contact-modal">
+      <div class="contact-inner">
+        <button class="contact-close">X</button>
+
+        <h2>CONTACT</h2>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <section id="visual">
+      <div class="video-container">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/images/main-visual-thumb.jpg"
+          class="main-video"
+        >
+          <!-- playsinline :: 아이폰 유저가 모바일에서 접속했을 때, 영상이 갑자기 전체화면으로 튀어나와서 웹사이트 흐름을 끊는 것을 막아줌 -->
+          <!-- poster :: 영상이 다운로드되는 동안 보여줄 대기 이미지 -->
+          <!-- preload="metadata" :: 영상 전체를 미리 받지 않고 길이, 해상도 정보만 먼저 받아 로딩 속도를 최적화함 -->
+
+          <source src="img/video.mp4" type="video/mp4" />
+
+          <!-- 영상 지원 안 할 시 대체 텍스트 -->
+          <p>
+            귀하의 브라우저는 비디오 재생을 지원하지 않습니다.
+            <a href="assets/video/main-visual.mp4">영상 다운로드</a>
+          </p>
+        </video>
+
+        <div class="video-dark"></div>
+
+        <!-- 영상 위에 얹어질 콘텐츠 (디자인 포인트) -->
+        <div class="video-overlay">
+          <span class="sub-title">UI DESIGNER</span>
+
+          <h2>
+            감각을 디테일하게 <br />
+            구현합니다.
+          </h2>
+
+          <p>
+            사용자 경험과 화면의 흐름을 고민하며 더 나은 인터페이스를
+            만들어갑니다.
+          </p>
+
+          <a href="#work">작업물 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="work-inner">
+        <!-- 섹션 제목 -->
+        <div class="work-title">
+          <span>WEB PROJECT</span>
+          <h2>
+            다양한 프로젝트를 통해<br />UI디자인과 웹 구현을 경험했습니다.
+          </h2>
+        </div>
+
+        <!-- 탭 버튼 -->
+        <div class="work-tabs">
+          <button class="work-tab active" data-tab="preview-clone">
+            <span>01</span>
+            청년복지 플랫폼
+          </button>
+
+          <!-- data-tab :: 사용자 정의 데이터 저장 -->
+          <!-- 원래 html에는 href, src, alt 같은 기본 속성만 있는데 개발자가 직접 data-아무이름 형태로 데이터를 저장할 수 있음 -->
+          <!-- 이 버튼은 clone 탭과 연결된다는 뜻 -->
+
+          <!-- js가 버튼의 data-tab 값을 읽고 같은 id를 가진 preview를 보여줌 -->
+          <button class="work-tab" data-tab="preview-illustration">
+            <span>02</span>
+            카페브랜드 웹사이트
+          </button>
+
+          <button class="work-tab" data-tab="preview-mockup">
+            <span>03</span>
+            한국관광공사 클론
+          </button>
+
+          <button class="work-tab" data-tab="preview-app">
+            <span>04</span>
+            아가방몰 클론
+          </button>
+        </div>
+
+        <!-- 작업물 미리보기 -->
+        <div class="work-preview">
+          <!-- clone -->
+          <div class="preview-content active" id="preview-clone">
+            <div class="preview-image">
+              <img src="img/welfare_mockup.png" alt="" />
+            </div>
+
+            <div class="preview-info">
+              <span>PERSONAL PROJECT</span>
+              <h3>청년 복지 플랫폼</h3>
+
+              <p>
+                고립된 청년을 위한 사회적 연결과 참여를 주제로 기획한
+                웹사이트입니다. 정보 제공과 캠페인 콘텐츠를 중심으로,
+                <br />사용자와 사회를 연결하고 참여를 이끄는 경험을
+                설계했습니다.
+              </p>
+
+              <!-- project meta -->
+              <ul class="project-meta">
+                <li>Responsive Web</li>
+                <li>HTML / CSS / JS</li>
+              </ul>
+
+              <a href="https://seulhub.github.io/youth-welfare/">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="preview-content" id="preview-illustration">
+            <div class="preview-image">
+              <img src="img/cafe_mockup.png" alt="" />
+            </div>
+            <div class="preview-info">
+              <span>PERSONAL PROJECT</span>
+
+              <h3>카페 브랜드 웹사이트</h3>
+
+              <p>
+                메뉴와 브랜드 이미지를 중심으로 화면을 구성하고, 콘텐츠의 흐름과
+                시각적 완성도를 고려해 웹페이지를 구현했습니다.
+              </p>
+
+              <ul class="project-meta">
+                <li>Responsive Web</li>
+                <li>HTML / CSS / JS</li>
+              </ul>
+
+              <a href="https://seulhub.github.io/cafe/">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="preview-content" id="preview-mockup">
+            <div class="preview-image">
+              <img src="img/kto_mockup.png" alt="" />
+            </div>
+
+            <div class="preview-info">
+              <span>CLONE CODING</span>
+
+              <h3>한국관광공사 클론</h3>
+
+              <p>
+                HTML과 CSS를 활용해 주요 화면을 직접 구현했습니다. <br />원본의
+                구성과 비주얼을 최대한 유지하면서 <br />웹페이지 제작 과정을
+                경험했습니다.
+              </p>
+
+              <ul class="project-meta">
+                <li>Responsive Web</li>
+                <li>HTML / CSS</li>
+              </ul>
+
+              <a href=" https://seulhub.github.io/clone_kto/">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="preview-content" id="preview-app">
+            <div class="preview-image">
+              <img src="img/agabang_mockup.png" alt="" />
+            </div>
+
+            <div class="preview-info">
+              <span>CLONE CODING</span>
+
+              <h3>아가방몰 클론</h3>
+
+              <p>
+                HTML과 CSS를 활용해 주요 화면을 직접 구현했습니다. <br />원본의
+                구성과 비주얼을 최대한 유지하면서 <br />웹페이지 제작 과정을
+                경험했습니다.
+              </p>
+
+              <ul class="project-meta">
+                <li>Responsive Web</li>
+                <li>HTML / CSS</li>
+              </ul>
+
+              <a href="https://seulhub.github.io/clone_agabang/">
+                작업물 보기
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- illustration -->
+    <section id="illustration">
+      <div class="illustration-inner">
+        <!-- 제목 -->
+        <div class="illustration-title">
+          <span>ILLUSTRATION</span>
+
+          <h2>
+            감정과 분위기를 <br />
+            시각적으로 표현합니다.
+          </h2>
+        </div>
+
+        <!-- 일러 이미지 -->
+        <div class="illustration-grid">
+          <!-- card 01 -->
+          <div class="illustration-card large">
+            <img
+              src="img/illustration/illustration_01.png"
+              alt="일러스트 작업물"
+            />
+
+            <div class="illustration-info">
+              <h3>푸른 심해</h3>
+
+              <p>
+                바다 생물과 수중 분위기를 벡터 스타일로 표현한 일러스트
+                작업입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- card 02 -->
+          <div class="illustration-card">
+            <img
+              src="img/illustration/illustration_02.png"
+              alt="일러스트 작업물"
+            />
+
+            <div class="illustration-info">
+              <h3>음악 축제</h3>
+
+              <p>
+                야외에서 음악을 즐기며 여유로운 시간을 보내는 사람들의 모습을
+                담아 자유로운 축제의 분위기를 표현한 일러스트 작업입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- card 03 -->
+          <div class="illustration-card">
+            <img
+              src="img/illustration/illustration_04.png"
+              alt="일러스트 작업물"
+            />
+
+            <div class="illustration-info">
+              <h3>판소리 공연</h3>
+
+              <p>
+                전통 악기와 소리, 장단을 이끄는 인물들의 모습을 담아 한국 전통
+                공연의 분위기를 표현한 일러스트 작업입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- card 04 -->
+          <div class="illustration-card large">
+            <img
+              src="img/illustration/illustration_03.png"
+              alt="일러스트 작업물"
+            />
+
+            <div class="illustration-info">
+              <h3>제주도 풍경</h3>
+
+              <p>
+                푸른 바다를 바라보며 여유로운 시간을 보내는 모습을 담아 제주도의
+                평온한 분위기를 표현한 일러스트 작업입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- card 05 -->
+          <div class="illustration-card">
+            <img
+              src="img/illustration/illustration_05.png"
+              alt="일러스트 작업물"
+            />
+
+            <div class="illustration-info">
+              <h3>카페 거리</h3>
+
+              <p>
+                따뜻한 가을 풍경 속 카페에서 여유로운 시간을 보내는 모습을 담아
+                포근한 거리의 분위기를 표현한 일러스트 작업입니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- card 06 -->
+          <div class="illustration-card">
+            <img
+              src="img/illustration/illustration_06.png"
+              alt="일러스트 작업물"
+            />
+
+            <div class="illustration-info">
+              <h3>영화 축제</h3>
+
+              <p>
+                여름밤의 짙은 색감과 은은한 조명 아래 영화와 함께하는 사람들의
+                모습을 담아 특별한 축제의 순간을 표현한 일러스트 작업입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- app design -->
+    <section id="app-design">
+      <div class="app-inner">
+        <!-- title -->
+        <div class="app-title">
+          <span>APP DESIGN</span>
+          <h2>사용자의 일상을 <br />더 편리하게 만드는 UI 디자인</h2>
+        </div>
+
+        <!-- ui grid -->
+        <div class="app-ui-grid">
+          <div class="ui-card large">
+            <img src="img/app/main home.png" alt="물 기록 앱 메인 화면" />
+          </div>
+
+          <div class="ui-card">
+            <img
+              src="img/app/용량선택상세.png"
+              alt="물 섭취량 기록 화면"
+            />
+          </div>
+
+          <div class="ui-card">
+            <img src="img/app/목표설정.png" alt="목표 설정 화면" />
+          </div>
+
+          <div class="ui-card wide">
+            <img src="img/app/주간통계.png" alt="물 섭취 통계 화면" />
+          </div>
+        </div>
+
+        <!-- text -->
+        <div class="app-info">
+          <h3>
+            건강한 수분 습관을 위한<br />
+            워터 트래킹 앱 UI 디자인
+          </h3>
+
+          <p>
+            사용자의 하루 물 섭취량을 기록하고, <br />목표 수분량과 현재 상태를
+            직관적으로 확인할 수 있도록 디자인한 헬스케어 앱입니다. <br /><br />
+            알림 기능과 데이터 시각화를 통해 꾸준한 수분 섭취 습관 형성을 돕도록
+            구성했습니다.
+          </p>
+
+          <!-- buttons -->
+          <div class="app-buttons">
+            <a
+              href="https://www.figma.com/proto/YzCe2jw9vvb7Wu3MfWcX7L/-%EC%A0%95%EA%B8%B0%ED%8F%89%EA%B0%80--%EC%95%B1-%EB%94%94%EC%9E%90%EC%9D%B8?node-id=25-20&t=kKpCacHGpN6dCSHR-1"
+              target="_blank"
+            >
+              Figma 보기
+            </a>
+
+            <a
+              href="pdf/앱 디자인 기획안_water water_최종.pdf"
+              target="_blank"
+            >
+              기획안 보기
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-card">
+          <!-- 프로필 이미지 -->
+          <div class="about-image">
+            <img src="img/character.png" alt="프로필 이미지" />
+          </div>
+
+          <!-- 소개글 -->
+          <div class="about-text">
+            <span class="mini-title">ABOUT</span>
+
+            <h2>
+              디테일을 고민하는 <br />
+              UI디자이너 김슬기입니다.
+            </h2>
+
+            <p>
+              보기 좋은 화면을 넘어, 작은 요소까지 고민하며 완성도 있는 UI를
+              만들어갑니다.
+            </p>
+
+            <a href="#work"
+              >작업물 보기 <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="skills-track">
+        <ul class="skills-slide">
+          <li class="skill-item">
+            <img src="img/skills/photoshop-original.svg" alt="photoshop" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/illustrator-plain.svg" alt="illustrator" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/vscode-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/html5-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/css3-original.svg" alt="css" />
+          </li>
+
+          <!-- <li class="skill-item">
+            <img src="img/skills/jquery-original.svg" alt="jquery" />
+          </li> -->
+
+          <!-- <li class="skill-item">
+            <img src="img/skills/javascript-original.svg" alt="javascript" />
+          </li> -->
+
+          <li class="skill-item">
+            <img src="img/skills/github-original.svg" alt="html" />
+          </li>
+        </ul>
+
+        <!-- 슬라이드 패턴 구분 -->
+        <div class="divider"></div>
+
+        <!-- 무한 슬라이드용 -->
+        <ul class="skills-slide">
+          <li class="skill-item">
+            <img src="img/skills/photoshop-original.svg" alt="photoshop" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/illustrator-plain.svg" alt="illustrator" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/vscode-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/html5-original.svg" alt="html" />
+          </li>
+
+          <li class="skill-item">
+            <img src="img/skills/css3-original.svg" alt="css" />
+          </li>
+          <!-- 
+          <li class="skill-item">
+            <img src="img/skills/jquery-original.svg" alt="jquery" />
+          </li> -->
+
+          <!-- <li class="skill-item">
+            <img src="img/skills/javascript-original.svg" alt="javascript" />
+          </li> -->
+
+          <li class="skill-item">
+            <img src="img/skills/github-original.svg" alt="html" />
+          </li>
+        </ul>
+
+        <!-- 슬라이드 패턴 구분 -->
+        <div class="divider"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-section-inner">
+        <!-- title -->
+        <div class="contact-title">
+          <span>CONTACT</span>
+
+          <h2>
+            좋은 화면을 만들기 위해 고민하고,<br />
+            꾸준히 배우며 성장하겠습니다.
+          </h2>
+        </div>
+
+        <!-- content -->
+        <div class="contact-wrap">
+          <!-- left -->
+          <div class="contact-left">
+            <p>
+              사용자 경험과 디테일을 고민하며<br />
+              더 나은 인터페이스를 만들어갑니다.
+            </p>
+
+            <ul class="contact-info">
+              <li>
+                <span>EMAIL</span>
+                <a href="mailto:seeeulkim@gmail.com"> hello@email.com </a>
+              </li>
+
+              <li>
+                <span>GITHUB</span>
+                <a href="#"> https://seulhub.github.io/eul/ </a>
+              </li>
+
+              <!-- <li>
+                <span>NOTION</span>
+                <a href="#"> Portfolio Archive </a>
+              </li> -->
+            </ul>
+          </div>
+
+          <!-- right -->
+          <div class="contact-right">
+            <form id="contact-section-form" class="contact-section-form">
+              <input type="text" name="name" placeholder="성함" required />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="이메일 주소"
+                required
+              />
+
+              <textarea
+                name="message"
+                placeholder="문의 내용"
+                required
+              ></textarea>
+
+              <button type="submit">보내기</button>
+
+              <p class="form-status" id="form-status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <footer id="footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <p class="footer-label">PORTFOLIO</p>
+
+          <h2 class="footer-title">
+            <span>작은 디테일까지</span>
+            <span>의미 있게 담아내고 싶습니다.</span>
+          </h2>
+        </div>
+
+        <div class="footer-bottom">
+          <ul class="footer-links">
+            <li><a href="#">Email</a></li>
+            <li><a href="#">Github</a></li>
+            <li><a href="#">Notion</a></li>
+          </ul>
+
+          <p class="copyright">© 2026 UI Designer 이름</p>
+        </div>
+      </div>
+    </footer> -->
+
+    <footer id="footer">
+      <div class="footer-inner">
+        <!-- 메인 메시지 -->
+        <div class="footer-hero">
+          <h2 class="footer-title">
+            작은 디테일이<br />
+            더 좋은 화면을 만듭니다
+          </h2>
+
+          <p class="footer-subtitle">
+            더 나은 UI를 고민하고<br />
+            하나씩 직접 만들어가는 디자이너가 되고 싶습니다.
+          </p>
+        </div>
+
+        <!-- GSAP 키워드 영역 -->
+        <!-- <div class="footer-keywords">
+          <ul>
+            <li class="keyword">USER EXPERIENCE</li>
+            <li class="keyword">UX THINKING</li>
+            <li class="keyword">FLOW FIRST DESIGN</li>
+            <li class="keyword">PROBLEM SOLVING</li>
+            <li class="keyword">DETAIL DRIVEN DESIGN</li>
+          </ul>
+        </div> -->
+
+        <!-- 마지막 서명 -->
+        <div class="footer-sign">
+          <p>끝까지 봐주셔서 감사합니다.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 탑 버튼 -->
+    <div class="top-btn">TOP</div>
+
+    <!-- 메일 전송 -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <!-- js 연결 -->
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- gsap 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  </body>
+</html>
